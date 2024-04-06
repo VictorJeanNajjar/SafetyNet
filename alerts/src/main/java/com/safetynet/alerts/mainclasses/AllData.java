@@ -1,12 +1,12 @@
-package com.safetynet.alerts.threemainclasses;
+package com.safetynet.alerts.mainclasses;
 
+import org.springframework.stereotype.Service;
 import java.util.ArrayList;
-
+@Service
 public class AllData {
     public ArrayList<Person> persons;
     public ArrayList<FireStation> firestations;
     public ArrayList<MedicalRecord> medicalrecords;
-
     public AllData(ArrayList<Person> persons,
                    ArrayList<FireStation> firestations,
                    ArrayList<MedicalRecord> medicalrecords) {
@@ -19,8 +19,8 @@ public class AllData {
     public String toString() {
         return "AllData{" +
                 "persons=" + persons +
-                ", firestations=" + firestations +
-                ", medicalrecords=" + medicalrecords +
+                ", fire stations=" + firestations +
+                ", medical records=" + medicalrecords +
                 '}';
     }
 
@@ -40,9 +40,7 @@ public class AllData {
         this.firestations = firestations;
     }
 
-    public ArrayList<MedicalRecord> getMedicalrecords() {
-        return medicalrecords;
-    }
+    public ArrayList<MedicalRecord> getMedicalRecords() {return medicalrecords;}
 
     public void setMedicalrecords(ArrayList<MedicalRecord> medicalrecords) {
         this.medicalrecords = medicalrecords;

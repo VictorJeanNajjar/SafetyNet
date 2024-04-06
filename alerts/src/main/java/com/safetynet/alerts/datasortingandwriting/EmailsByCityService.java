@@ -1,34 +1,27 @@
 package com.safetynet.alerts.datasortingandwriting;
 
-import com.safetynet.alerts.threemainclasses.AllData;
-import com.safetynet.alerts.threemainclasses.Person;
+import com.safetynet.alerts.mainclasses.Person;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.HashSet;
 import java.util.Set;
 
+import static com.safetynet.alerts.AlertsApplication.myData;
+
 @Service
 public class EmailsByCityService {
-
-    private final RestTemplate restTemplate;
-
-    private final String jsonUrl = "https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/DA+Java+EN/P5+/data.json";
-
-    public EmailsByCityService(RestTemplate restTemplate) {
-        this.restTemplate = restTemplate;
-    }
-
-    public Set<String> extractEmailAddresses() {
+    public Set<String> extractEmailAddresses(@RequestParam String city) {
         Set<String> emailAddresses = new HashSet<>();
-        AllData allData = restTemplate.getForObject(jsonUrl, AllData.class);
-        if (allData != null) {
-            for (Person person : allData.getPersons()) {
-                emailAddresses.add(person.getEmail());
+        if (myData != null) {
+            for (Person person : myData.getPersons()) {
+                if (person.getCity().equals(city)) {
+                    emailAddresses.add(person.getEmail());
+                }
             }
         }
         System.out.println(emailAddresses);
         return emailAddresses;
     }
 }
-//http://localhost:8080/communityEmail?city=<city>

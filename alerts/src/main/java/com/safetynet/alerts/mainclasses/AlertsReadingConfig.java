@@ -1,4 +1,4 @@
-package com.safetynet.alerts.readingdata;
+package com.safetynet.alerts.mainclasses;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

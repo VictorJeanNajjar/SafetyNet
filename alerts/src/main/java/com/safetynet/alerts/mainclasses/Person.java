@@ -1,4 +1,4 @@
-package com.safetynet.alerts.threemainclasses;
+package com.safetynet.alerts.mainclasses;
 
 public class Person {
     public String firstName;
