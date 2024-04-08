@@ -1,0 +1,200 @@
+GET http://localhost:8080/firestationR?stationNumber=2
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-04-08T141255.200.json
+
+###
+
+GET http://localhost:8080/communityEmail
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-04-08T130237.400.json
+
+###
+
+DELETE http://localhost:8080/firestation/1
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+###
+
+DELETE http://localhost:8080/firestation/firestation?address=951 LoneTree Rd&station=2
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-04-07T185222.400.json
+
+###
+
+DELETE http://localhost:8080/firestation/951%20LoneTree%20Rd?station=2
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-04-07T185022.400.json
+
+###
+
+DELETE http://localhost:8080/firestation/951%20LoneTree%20Rd&station=2
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-04-07T184909.400.json
+
+###
+
+DELETE http://localhost:8080/firestation/951%20LoneTree%20Rd&station=2
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-04-07T184833.400.json
+
+###
+
+POST http://localhost:8080/firestation/postall
+Content-Length: 0
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-04-07T124230.200.json
+
+###
+
+POST http://localhost:8080/firestation/postall
+Content-Length: 0
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-04-07T124158.200.json
+
+###
+
+POST http://localhost:8080/firestation/postall
+Content-Length: 0
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-04-07T123312.200.json
+
+###
+
+POST http://localhost:8080/firestation/postall
+Content-Length: 0
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-04-07T123225.200.json
+
+###
+
+POST http://localhost:8080/firestation/postall
+Content-Length: 0
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-04-07T122933.200.json
+
+###
+
+POST http://localhost:8080/firestation/postall
+Content-Length: 0
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-04-07T122502.200.json
+
+###
+
+POST http://localhost:8080/firestation/postall
+Content-Length: 0
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-04-07T121853.200.json
+
+###
+
+POST http://localhost:8080/firestation/postall
+Content-Length: 0
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-04-07T121523.200.json
+
+###
+
+GET http://localhost:8080/firestation/get
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-04-07T121446.200.json
+
+###
+
+POST http://localhost:8080/firestation/postall
+Content-Length: 0
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-04-07T121437.200.json
+
+###
+
+POST http://localhost:8080/firestation/postall
+Content-Length: 0
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-04-07T114816.200.json
+
+###
+
+POST http://localhost:8080/firestation/postall
+Content-Length: 0
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-04-07T114525.200.json
+
+###
+
+POST http://localhost:8080/firestation/postall
+Content-Length: 0
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-04-07T113157.500.json
+
+###
+
+POST http://localhost:8080/firestation/postall
+Content-Length: 0
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.10)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2024-04-07T111811.200.json
+
+###
+

@@ -1,15 +1,28 @@
 package com.safetynet.alerts.mainclasses;
 
-public class FireStation {
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+
+import java.util.ArrayList;
+
+@Entity
+public class Firestation {
+    @Id
+    @GeneratedValue
+    private Long id;
     public String address;
     public String station;
 
-    public FireStation(String address,
+    public Firestation(String address,
                        String station) {
         this.address = address;
         this.station = station;
     }
 
+    public Firestation() {
+
+    }
     @Override
     public String toString() {
         return "FireStation{" +

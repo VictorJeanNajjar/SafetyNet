@@ -1,8 +1,18 @@
 package com.safetynet.alerts.mainclasses;
 
-import java.util.ArrayList;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+@Entity
 public class MedicalRecord {
+    @Id
+    @GeneratedValue
+    private Long id;
     public String firstName;
     public String lastName;
     public String birthdate;
@@ -19,6 +29,10 @@ public class MedicalRecord {
         this.birthdate = birthdate;
         this.medications = medications;
         this.allergies = allergies;
+    }
+
+    public MedicalRecord() {
+
     }
 
     @Override
@@ -70,5 +84,13 @@ public class MedicalRecord {
 
     public void setAllergies(ArrayList<String> allergies) {
         this.allergies = allergies;
+    }
+    public int getAge() {
+        String dateString = getBirthdate();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+        LocalDate date = LocalDate.parse(dateString, formatter);
+        LocalDate currentDate = LocalDate.now();
+
+        return Period.between(date, currentDate).getYears();
     }
 }

@@ -1,6 +1,14 @@
 package com.safetynet.alerts.mainclasses;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+
+@Entity
 public class Person {
+    @Id
+    @GeneratedValue
+    private Long id;
     public String firstName;
     public String lastName;
     public String address;
@@ -23,6 +31,10 @@ public class Person {
         this.zip = zip;
         this.phone = phone;
         this.email = email;
+    }
+
+    public Person() {
+
     }
 
     @Override

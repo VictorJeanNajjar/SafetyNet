@@ -2,13 +2,14 @@ package com.safetynet.alerts.mainclasses;
 
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
-@Service
+import java.util.List;
+
 public class AllData {
     public ArrayList<Person> persons;
-    public ArrayList<FireStation> firestations;
+    public List<Firestation> firestations;
     public ArrayList<MedicalRecord> medicalrecords;
     public AllData(ArrayList<Person> persons,
-                   ArrayList<FireStation> firestations,
+                   List<Firestation> firestations,
                    ArrayList<MedicalRecord> medicalrecords) {
         this.persons = persons;
         this.firestations = firestations;
@@ -32,11 +33,11 @@ public class AllData {
         this.persons = persons;
     }
 
-    public ArrayList<FireStation> getFirestations() {
+    public List<Firestation> getFirestations() {
         return firestations;
     }
 
-    public void setFirestations(ArrayList<FireStation> firestations) {
+    public void setFirestations(ArrayList<Firestation> firestations) {
         this.firestations = firestations;
     }
 
