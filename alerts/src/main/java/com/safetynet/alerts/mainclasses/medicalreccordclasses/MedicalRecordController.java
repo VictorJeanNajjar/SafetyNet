@@ -1,6 +1,9 @@
 package com.safetynet.alerts.mainclasses.medicalreccordclasses;
 
 import com.safetynet.alerts.mainclasses.MedicalRecord;
+import com.safetynet.alerts.mainclasses.Person;
+import com.safetynet.alerts.mainclasses.personclasses.PersonRepository;
+import com.safetynet.alerts.mainclasses.personclasses.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,6 +17,7 @@ public class MedicalRecordController {
     public MedicalRecordService medicalRecordService;
     @Autowired
     public MedicalRecordRepository medicalRecordRepository;
+    public PersonService personService;
 
     public MedicalRecordController() {
     }
@@ -22,13 +26,16 @@ public class MedicalRecordController {
         this.medicalRecordRepository = medicalRecordRepository;
     }
 
-    @PostMapping("/post")
-    public void addNewMedicalRecordController(@RequestBody MedicalRecord medicalRecord) {
+    @PostMapping
+    public void addNewMedicalRecordController(@RequestBody MedicalRecord medicalRecord, @RequestParam Person person) {
         medicalRecordService.addNewMedicalRecord(medicalRecord);
+        personService.addNewPerson(person);
     }
-    @DeleteMapping(path = "{medicalRecordId}")
-    public void deleteMedicalRecordController(@PathVariable("medicalRecordId") Long id){
+    @DeleteMapping(path = "{id}")
+    public void deleteMedicalRecordController(@PathVariable("id") Long id){
         medicalRecordService.deleteMedicalRecord(id);
+        personService.deletePerson(id);
+
     }
     @PutMapping(path = "{medicalRecordId}")
     public void updateMedicalRecordController(@PathVariable("medicalRecordId") Long id,

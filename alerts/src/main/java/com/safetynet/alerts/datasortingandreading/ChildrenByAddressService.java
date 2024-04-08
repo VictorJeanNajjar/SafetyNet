@@ -1,4 +1,4 @@
-package com.safetynet.alerts.datasortingandwriting;
+package com.safetynet.alerts.datasortingandreading;
 
 import com.safetynet.alerts.mainclasses.MedicalRecord;
 import com.safetynet.alerts.mainclasses.Person;

@@ -21,7 +21,7 @@ public class FireStationController {
         this.firestationRepository = firestationRepository;
     }
 
-    @PostMapping("/post")
+    @PostMapping
     public void addNewFirestationController(@RequestBody Firestation firestation) {
         firestationService.addNewFirestation(firestation);
     }

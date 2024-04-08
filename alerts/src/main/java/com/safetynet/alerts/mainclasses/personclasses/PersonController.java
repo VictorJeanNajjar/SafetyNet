@@ -1,6 +1,8 @@
 package com.safetynet.alerts.mainclasses.personclasses;
 
+import com.safetynet.alerts.mainclasses.MedicalRecord;
 import com.safetynet.alerts.mainclasses.Person;
+import com.safetynet.alerts.mainclasses.medicalreccordclasses.MedicalRecordService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,21 +15,26 @@ public class PersonController {
     public PersonService personService;
     @Autowired
     public PersonRepository personRepository;
+    @Autowired
+    public MedicalRecordService medicalRecordService;
 
     public PersonController() {
     }
-    public PersonController(PersonService personService, PersonRepository personRepository) {
+    public PersonController(PersonService personService, PersonRepository personRepository, MedicalRecordService medicalRecordService) {
         this.personService = personService;
         this.personRepository = personRepository;
+        this.medicalRecordService = medicalRecordService;
     }
 
     @PostMapping
-    public void addNewPersonController(@RequestBody Person person) {
+    public void addNewPersonController(@RequestBody Person person, @RequestParam MedicalRecord medicalRecord) {
         personService.addNewPerson(person);
+        medicalRecordService.addNewMedicalRecord(medicalRecord);
     }
-    @DeleteMapping(path = "{personId}")
-    public void deletePersonController(@PathVariable("personId") Long id){
+    @DeleteMapping(path = "{id}")
+    public void deletePersonController(@PathVariable("id") Long id){
         personService.deletePerson(id);
+        medicalRecordService.deleteMedicalRecord(id);
     }
     @PutMapping(path = "{personId}")
     public void updatePersonController(@PathVariable("personId") Long id,

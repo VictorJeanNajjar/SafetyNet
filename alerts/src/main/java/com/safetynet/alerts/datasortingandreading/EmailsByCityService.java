@@ -1,4 +1,4 @@
-package com.safetynet.alerts.datasortingandwriting;
+package com.safetynet.alerts.datasortingandreading;
 
 import com.safetynet.alerts.mainclasses.Person;
 import com.safetynet.alerts.mainclasses.personclasses.PersonRepository;
