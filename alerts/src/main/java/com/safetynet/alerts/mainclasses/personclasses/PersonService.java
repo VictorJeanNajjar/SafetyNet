@@ -1,12 +1,15 @@
 package com.safetynet.alerts.mainclasses.personclasses;
 
 import com.safetynet.alerts.mainclasses.Person;
+import com.safetynet.alerts.mainclasses.repositories.PersonRepository;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 
@@ -21,7 +24,7 @@ public class PersonService {
         this.person = person;
         this.personRepository = personRepository;
     }
-    public void addNewPerson(Person person) {
+    public String addNewPerson(Person person) {
         String firstName = person.getFirstName();
         String lastName = person.getLastName();
         String address = person.getAddress();
@@ -33,29 +36,34 @@ public class PersonService {
         if (optionalPerson.isEmpty()) {
             personRepository.save(person);
         } else {
-            System.out.println("Person address already exists");
+            return "Person address already exists";
         }
+        return "Person successfully added";
     }
-    public void deletePerson(Long id){
-        if (personRepository.findById(id).isPresent()) {
+    public String deletePerson(String firstName,
+                             String lastName){
+        List<Person> persons = personRepository.findByFirstNameAndLastName(firstName, lastName);
+        if(!persons.isEmpty()) {
+            Person person = persons.getFirst();
+            Long id = person.getId();
             personRepository.deleteById(id);
+        } else {
+            return "Person does not exist";
         }
-        else{
-            System.out.println("Person does not exist");
-        }
+        return "Person successfully Deleted";
     }
     @Transactional
-    public void updatePerson(Long id,
-                             String firstName,
-                             String lastName,
-                             String address,
-                             String city,
-                             String zip,
-                             String phone,
-                             String email) {
-        Optional<Person> optionalPerson = personRepository.findById(id);
-        if (optionalPerson.isPresent()) {
-            Person person = optionalPerson.get();
+    public String updatePerson(@RequestBody Person getperson) {
+        String firstName = getperson.getFirstName();
+        String lastName = getperson.getLastName();
+        String address = getperson.getAddress();
+        String city = getperson.getCity();
+        String zip = getperson.getZip();
+        String phone = getperson.getPhone();
+        String email = getperson.getEmail();
+        List<Person> persons = personRepository.findByFirstNameAndLastName(firstName, lastName);
+        if(!persons.isEmpty()) {
+            Person person = persons.getFirst();
             person.setFirstName(firstName);
             person.setLastName(lastName);
             person.setAddress(address);
@@ -65,7 +73,8 @@ public class PersonService {
             person.setEmail(email);
             personRepository.save(person);
         } else {
-            throw new EntityNotFoundException("Person with id " + id + " not found");
+            return "Person with " + firstName + " " + lastName + " not found";
         }
+        return "Person successfully updated";
     }
 }

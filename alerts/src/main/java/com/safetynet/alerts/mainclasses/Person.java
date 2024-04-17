@@ -3,8 +3,10 @@ package com.safetynet.alerts.mainclasses;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import org.springframework.stereotype.Component;
 
 @Entity
+@Component
 public class Person {
     @Id
     @GeneratedValue

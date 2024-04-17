@@ -1,13 +1,10 @@
 package com.safetynet.alerts.mainclasses.medicalreccordclasses;
 
 import com.safetynet.alerts.mainclasses.MedicalRecord;
-import com.safetynet.alerts.mainclasses.Person;
-import com.safetynet.alerts.mainclasses.personclasses.PersonRepository;
-import com.safetynet.alerts.mainclasses.personclasses.PersonService;
+import com.safetynet.alerts.mainclasses.repositories.MedicalRecordRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -17,7 +14,6 @@ public class MedicalRecordController {
     public MedicalRecordService medicalRecordService;
     @Autowired
     public MedicalRecordRepository medicalRecordRepository;
-    public PersonService personService;
 
     public MedicalRecordController() {
     }
@@ -27,24 +23,18 @@ public class MedicalRecordController {
     }
 
     @PostMapping
-    public void addNewMedicalRecordController(@RequestBody MedicalRecord medicalRecord, @RequestParam Person person) {
-        medicalRecordService.addNewMedicalRecord(medicalRecord);
-        personService.addNewPerson(person);
+    public String addNewMedicalRecordController(@RequestBody MedicalRecord medicalRecord){
+        return medicalRecordService.addNewMedicalRecord(medicalRecord);
     }
-    @DeleteMapping(path = "{id}")
-    public void deleteMedicalRecordController(@PathVariable("id") Long id){
-        medicalRecordService.deleteMedicalRecord(id);
-        personService.deletePerson(id);
+    @DeleteMapping
+    public String deleteMedicalRecordController(@RequestParam String firstName,
+                                              @RequestParam String lastName){
+        return medicalRecordService.deleteMedicalRecord(firstName, lastName);
 
     }
-    @PutMapping(path = "{medicalRecordId}")
-    public void updateMedicalRecordController(@PathVariable("medicalRecordId") Long id,
-                                              @RequestParam (required = false) String firstName,
-                                              @RequestParam (required = false) String lastName,
-                                              @RequestParam (required = false) String birthdate,
-                                              @RequestParam (required = false) ArrayList<String> medications,
-                                              @RequestParam (required = false) ArrayList<String> allergies){
-        medicalRecordService.updateMedicalRecord(id, firstName, lastName, birthdate, medications, allergies);
+    @PutMapping
+    public String updateMedicalRecordController(@RequestBody MedicalRecord medicalRecord){
+        return medicalRecordService.updateMedicalRecord(medicalRecord);
     }
     @GetMapping("/test")
     public List<MedicalRecord> getAllMedicalRecords() {

@@ -1,4 +1,4 @@
-package com.safetynet.alerts.mainclasses.personclasses;
+package com.safetynet.alerts.mainclasses.repositories;
 
 import com.safetynet.alerts.mainclasses.Person;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -16,6 +16,6 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
                                                                                               String email);
     public List<Person> findByCity(String city);
     public List<Person> findByAddress (String address);
-    public List<Person> findByFirstNameAndLastName (String firstName,
-                                                    String lastName);
+    public List <Person> findByFirstNameAndLastName (String firstName,
+                                              String lastName);
 }

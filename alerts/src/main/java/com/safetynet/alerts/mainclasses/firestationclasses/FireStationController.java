@@ -1,6 +1,7 @@
 package com.safetynet.alerts.mainclasses.firestationclasses;
 
 import com.safetynet.alerts.mainclasses.Firestation;
+import com.safetynet.alerts.mainclasses.repositories.FirestationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,18 +23,16 @@ public class FireStationController {
     }
 
     @PostMapping
-    public void addNewFirestationController(@RequestBody Firestation firestation) {
-        firestationService.addNewFirestation(firestation);
+    public String addNewFirestationController(@RequestBody Firestation firestation) {
+        return firestationService.addNewFirestation(firestation);
     }
-    @DeleteMapping(path = "{firestationId}")
-    public void deleteFirestationController(@PathVariable("firestationId") Long id){
-        firestationService.deleteFirestation(id);
+    @DeleteMapping
+    public String deleteFirestationController(@RequestParam String address, @RequestParam String station){
+        return firestationService.deleteFirestation(address, station);
     }
-    @PutMapping(path = "{firestationId}")
-    public void updateFirestationsController(@PathVariable("firestationId") Long id,
-                                   @RequestParam (required = false) String address,
-                                   @RequestParam (required = false) String stationNumber){
-        firestationService.updateFirestations(id, address, stationNumber);
+    @PutMapping
+    public String updateFirestationsController(@RequestBody Firestation firestation){
+        return firestationService.updateFirestations(firestation);
     }
     @GetMapping("/test")
     public List<Firestation> getAllFireStations() {

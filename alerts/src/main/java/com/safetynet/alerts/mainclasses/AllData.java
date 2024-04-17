@@ -6,10 +6,10 @@ import java.util.List;
 
 public class AllData {
     public ArrayList<Person> persons;
-    public List<Firestation> firestations;
+    public ArrayList<Firestation> firestations;
     public ArrayList<MedicalRecord> medicalrecords;
     public AllData(ArrayList<Person> persons,
-                   List<Firestation> firestations,
+                   ArrayList<Firestation> firestations,
                    ArrayList<MedicalRecord> medicalrecords) {
         this.persons = persons;
         this.firestations = firestations;
@@ -33,7 +33,7 @@ public class AllData {
         this.persons = persons;
     }
 
-    public List<Firestation> getFirestations() {
+    public ArrayList<Firestation> getFirestations() {
         return firestations;
     }
 

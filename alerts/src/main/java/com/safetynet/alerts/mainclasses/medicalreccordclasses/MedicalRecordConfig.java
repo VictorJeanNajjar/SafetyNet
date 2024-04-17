@@ -2,6 +2,7 @@ package com.safetynet.alerts.mainclasses.medicalreccordclasses;
 
 import com.safetynet.alerts.mainclasses.AllData;
 import com.safetynet.alerts.mainclasses.MedicalRecord;
+import com.safetynet.alerts.mainclasses.repositories.MedicalRecordRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;

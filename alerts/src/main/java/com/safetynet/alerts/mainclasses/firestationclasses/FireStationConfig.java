@@ -2,6 +2,7 @@ package com.safetynet.alerts.mainclasses.firestationclasses;
 
 import com.safetynet.alerts.mainclasses.AllData;
 import com.safetynet.alerts.mainclasses.Firestation;
+import com.safetynet.alerts.mainclasses.repositories.FirestationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;

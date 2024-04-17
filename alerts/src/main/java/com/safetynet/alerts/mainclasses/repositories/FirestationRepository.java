@@ -1,4 +1,4 @@
-package com.safetynet.alerts.mainclasses.firestationclasses;
+package com.safetynet.alerts.mainclasses.repositories;
 
 import com.safetynet.alerts.mainclasses.Firestation;
 import com.safetynet.alerts.mainclasses.MedicalRecord;
@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface FirestationRepository extends JpaRepository<Firestation, Long> {
-    public Optional<Firestation> findByAddressAndStation(String address, String station);
+    public List<Firestation> findByAddressAndStation(String address, String station);
     public List<Firestation> findByStation(String station);
-    public Firestation findByAddress(String address);
+    public List<Firestation> findByAddress(String address);
 }

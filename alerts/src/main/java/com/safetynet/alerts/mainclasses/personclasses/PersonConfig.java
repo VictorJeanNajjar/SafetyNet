@@ -15,7 +15,7 @@ import static com.safetynet.alerts.AlertsApplication.jsonUrl;
 @Configuration
 public class PersonConfig {
     @Autowired
-    public PersonRepository PersonRepository;
+    public com.safetynet.alerts.mainclasses.repositories.PersonRepository PersonRepository;
     @Bean
     public CommandLineRunner loadDataPerson(RestTemplate restTemplate) {
         return args -> {

@@ -3,9 +3,9 @@ package com.safetynet.alerts.datasortingandreading;
 import com.safetynet.alerts.mainclasses.Firestation;
 import com.safetynet.alerts.mainclasses.MedicalRecord;
 import com.safetynet.alerts.mainclasses.Person;
-import com.safetynet.alerts.mainclasses.firestationclasses.FirestationRepository;
-import com.safetynet.alerts.mainclasses.medicalreccordclasses.MedicalRecordRepository;
-import com.safetynet.alerts.mainclasses.personclasses.PersonRepository;
+import com.safetynet.alerts.mainclasses.repositories.FirestationRepository;
+import com.safetynet.alerts.mainclasses.repositories.MedicalRecordRepository;
+import com.safetynet.alerts.mainclasses.repositories.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

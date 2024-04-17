@@ -1,14 +1,16 @@
 package com.safetynet.alerts.mainclasses;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.List;
+
 @Entity
+@Component
 public class MedicalRecord {
     @Id
     @GeneratedValue
@@ -16,8 +18,10 @@ public class MedicalRecord {
     public String firstName;
     public String lastName;
     public String birthdate;
-    public ArrayList<String> medications;
-    public ArrayList<String> allergies;
+    @ElementCollection
+    private List<String> medications = new ArrayList<>();
+    @ElementCollection
+    private List<String> allergies = new ArrayList<>();
 
     public MedicalRecord(String firstName,
                          String lastName,
@@ -77,19 +81,19 @@ public class MedicalRecord {
         this.birthdate = birthdate;
     }
 
-    public ArrayList<String> getMedications() {
+    public List<String> getMedications() {
         return medications;
     }
 
-    public void setMedications(ArrayList<String> medications) {
+    public void setMedications(List<String> medications) {
         this.medications = medications;
     }
 
-    public ArrayList<String> getAllergies() {
+    public List<String> getAllergies() {
         return allergies;
     }
 
-    public void setAllergies(ArrayList<String> allergies) {
+    public void setAllergies(List<String> allergies) {
         this.allergies = allergies;
     }
     public int getAge() {

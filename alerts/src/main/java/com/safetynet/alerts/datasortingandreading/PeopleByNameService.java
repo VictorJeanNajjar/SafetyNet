@@ -2,8 +2,8 @@ package com.safetynet.alerts.datasortingandreading;
 
 import com.safetynet.alerts.mainclasses.MedicalRecord;
 import com.safetynet.alerts.mainclasses.Person;
-import com.safetynet.alerts.mainclasses.medicalreccordclasses.MedicalRecordRepository;
-import com.safetynet.alerts.mainclasses.personclasses.PersonRepository;
+import com.safetynet.alerts.mainclasses.repositories.MedicalRecordRepository;
+import com.safetynet.alerts.mainclasses.repositories.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,16 +22,16 @@ public class PeopleByNameService {
         List <Person> personList = personRepository.findByFirstNameAndLastName(firstName, lastName);
         for (Person person : personList){
             Long personId = person.getId();
-
-            Optional<MedicalRecord> medicalRecordListOptional = medicalRecordRepository.findById(personId);
-            if (medicalRecordListOptional.isPresent()){
-            MedicalRecord currentmedicalRecord = medicalRecordListOptional.get();
             peopleInfo.add("Person: " +
                     person.getFirstName()+ " " +
                     person.getLastName()+" address: " +
-                    person.getAddress()+ " age: " +
-                    currentmedicalRecord.getAge()+ " email: " +
-                    person.getEmail()+ " medication(s): " +
+                    person.getAddress() + " email: " +
+                    person.getEmail());
+            Optional<MedicalRecord> medicalRecordListOptional = medicalRecordRepository.findById(personId);
+            if (medicalRecordListOptional.isPresent()){
+            MedicalRecord currentmedicalRecord = medicalRecordListOptional.get();
+            peopleInfo.add("age: " +
+                    currentmedicalRecord.getAge()+ " medication(s): " +
                     currentmedicalRecord.getMedications().toString()+ " allergies: " +
                     currentmedicalRecord.getAllergies().toString());
             }
