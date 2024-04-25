@@ -12,6 +12,7 @@ import org.mockito.MockitoAnnotations;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
@@ -26,6 +27,19 @@ public class FirestationTest {
     @BeforeEach
     public void setUp() {
         MockitoAnnotations.initMocks(this);
+    }
+    @Test
+    void testFirestation() {
+        // Arrange
+        String address = "123 Main St";
+        String station = "Station 1";
+
+        // Act
+        Firestation firestation = new Firestation(address, station);
+
+        // Assert
+        assertEquals(address, firestation.getAddress());
+        assertEquals(station, firestation.getStation());
     }
 
     @Test
